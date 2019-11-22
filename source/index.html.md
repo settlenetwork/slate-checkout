@@ -115,16 +115,6 @@ type | Buy
 
 # Initialize Checkout Flow
 
-> Response Headers:
-
-```javascript
-{
-    "set-cookie": checkout.session={{latamex.checkout.cookie}}
-    "status": 303,
-    "location": {{latamex.checkout.url}}
-}
-```
-
 > Example
 > Form Data Content
 
@@ -137,6 +127,7 @@ type | Buy
     "destinationAsset": "BTC",
     "originAsset": "ARS",
     "checkoutAmount": 1500,
+    "feeAmount": 300,
     "consumerUserEmail": "example@mail.com",
     "consumerUserId": "60176823-206c-49b7-8288-bdb3fed628c6",
     "countryCode": "AR",
@@ -162,7 +153,17 @@ type | Buy
 }
 ```
 
-><strong>Note:</strong> As the response of the POST is a 303, XHR requests won’t work. The request must be performed sending the form data by posting the data using a form and a form action.
+><strong>Note:</strong> As the response of the POST is a 303, XHR requests won’t work. The request must be performed sending the form data by posting it using a form and a form action.
+
+> Response Headers:
+
+```javascript
+{
+    "set-cookie": checkout.session={{latamex.checkout.cookie}}
+    "status": 303,
+    "location": {{latamex.checkout.url}}
+}
+```
 
 ### HTTP Request
 `POST /api/checkout/new`
@@ -183,8 +184,9 @@ destinationWalletAddressTag | string | <strong>optional</strong> - Extra data of
 destinationAsset | string | <strong>required</strong> - The asset to be sent
 originAsset | string | <strong>required</strong> - The asset that we will receive during checkout
 checkoutAmount | real | <strong>required</strong> - The total amount on originAsset to be sent
+feeAmount | real | <strong>required</strong> - The total fee on originAsset
 quote | real | <strong>required</strong> - The quote at the moment of starting the checkout flow
-callbackUrl | string | <strong>required</strong> - If present, we will send the user back to this url once the flow is finished
+callbackUrl | string | <strong>required</strong> - The url where we will redirect the user once the flow is completed
 
 # Get Deposit Tickets
 
@@ -247,12 +249,18 @@ callbackUrl | string | <strong>required</strong> - If present, we will send the 
 ### HTTP Request
 `GET /api/account/{id}/deposits`
 
-FYI: {id} could be the “user id” (see consumerUserId in response) as well as “all” as wildcard to retrieve all the tickets from all users.
+<aside class="notice">
+  Note: {id} could be the “user id” (see consumerUserId in response) as well as “all” as wildcard to retrieve all the tickets from all users.
+</aside>
  
 Examples: 
-    Retrieve tickets for a specific user:
+
+Retrieve tickets for a specific user:
+
 `GET /api/account/bae42210-d136-4832-afad-ebfbace4eb3a/deposits`
-    Retrieve all tickets for all users: 
+
+Retrieve all tickets for all users: 
+
 `GET /api/account/all/deposits`
 
 ### Query Params
