@@ -39,6 +39,6 @@
 
 | key       | Value              |
 | --------- | ------------------ |
-| fromAsset | ARS, BRL, MXN      |
-| toAsset   | BTC, BNB, ETH, LTC |
+| fromAsset | BTC, BNB, ETH, LTC |
+| toAsset   | ARS, BRL, MXN      |
 | type      | Buy                |
