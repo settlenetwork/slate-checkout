@@ -8,11 +8,15 @@ toc_footers:
   - <a href='https://settlenetwork.com'>Visit Settle Network</a>
 
 includes:
-  - authentication
-  - createTransaction
-  - getTransactions
-  - getTransaction
-  - getKYCInfo
+  - transactions/authentication
+  - transactions/context
+  - transactions/steps/step_1_countries
+  - transactions/steps/step_2_kyc
+  - transactions/steps/step_3_order-types
+  - transactions/steps/step_4_assets
+  - transactions/steps/step_5_payment-methods
+  - transactions/createTransaction
+  - transactions/getTransactions
 
 search: true
 ---
