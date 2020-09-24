@@ -29,16 +29,16 @@
 
 ### Current Supported Assets for Sell type (Deposit/Cash-In)
 
-| key       | Value              |
-| --------- | ------------------ |
-| fromAsset | BTC, BNB, ETH, LTC |
-| toAsset   | ARS, BRL, MXN      |
-| type      | Sell               |
+| key       | Value                         |
+| --------- | ----------------------------- |
+| fromAsset | BTC, BNB, ETH, LTC, TUSD, DAI |
+| toAsset   | ARS, BRL, MXN                 |
+| type      | Sell                          |
 
 ### Current Supported Assets for Buy type (Withdraw/Cash-Out)
 
-| key       | Value              |
-| --------- | ------------------ |
-| fromAsset | BTC, BNB, ETH, LTC |
-| toAsset   | ARS, BRL, MXN      |
-| type      | Buy                |
+| key       | Value         |
+| --------- | ------------- |
+| fromAsset | BTC           |
+| toAsset   | ARS, BRL, MXN |
+| type      | Buy           |
